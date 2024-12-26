@@ -1,8 +1,4 @@
 # Personal-Data-Vault
-A Secure platform for storing and managing sensitive personal information with encryption, access control, and easy file categorization
-Personal Data Vault (Secure File Vault System)
-
-Overview
 The Personal Data Vault is a Flask-based web application designed to securely store and manage encrypted files. Users can register, log in, upload files, and retrieve them after decryption. The application uses AES encryption for file content and RSA encryption to encrypt the AES keys. The app leverages PostgreSQL for persistent storage of users, files, and logs.
 
 Features
