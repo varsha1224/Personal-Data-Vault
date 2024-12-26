@@ -117,7 +117,7 @@ personal-data-vault/
 
 │   └── vault.html
 
-├── static/               # Static assets (e.g., CSS, JS)
+├── static/               # Static assets (CSS files)
 
 ├── uploaded_files/       # Folder where encrypted files are stored
 
