@@ -65,16 +65,27 @@ Purpose: Logs out the current user and redirects to the login page.
 File Structure
 
 personal-data-vault/
+
 │
+
 ├── app.py                # Flask app containing routes and main logic
+
 ├── db.py                 # Database interactions and utility functions
+
 ├── requirements.txt      # Python dependencies
+
 ├── templates/            # HTML templates (e.g., login, register, vault)
+
 │   ├── login.html
+
 │   ├── register.html
+
 │   └── vault.html
+
 ├── static/               # Static assets (e.g., CSS, JS)
+
 ├── uploaded_files/       # Folder where encrypted files are stored
+
 └── downloads/            # Folder for decrypted files to be downloaded
 
 Cryptography Details
