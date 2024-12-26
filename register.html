@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+    <div class="register-container">
+        <h1>Register</h1>
+        <form method="POST" action="{{ url_for('register') }}">
+            <div class="input-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+ 
+            <button type="submit">Register</button>
+        </form>
+        
+        <br>
+        <a href="{{ url_for('login') }}" class="login-link">Already registered? Click here to login</a>
+    </div>
+</body>
+</html>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="flash-message {{ category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+<script>
+  // Fade out flash messages after 3 seconds
+  setTimeout(() => {
+    const flashMessages = document.querySelector('.flash-messages');
+    if (flashMessages) {
+      flashMessages.style.transition = "opacity 0.5s ease";
+      flashMessages.style.opacity = "0";
+      setTimeout(() => flashMessages.remove(), 500);
+    }
+  }, 3000);
+</script>

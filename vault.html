@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Vault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='vault.css') }}">
+</head>
+<body>
+    <div class="vault-container">
+        <header class="vault-header">
+            <h1>Your Personal Data Vault</h1>
+        </header>
+
+        <!-- Upload file button -->
+        <div class="upload-section">
+            <!-- Form to handle file upload -->
+            <form id="uploadForm" action="{{ url_for('vault') }}" method="POST" enctype="multipart/form-data">
+                <button type="button" class="upload-btn" onclick="document.getElementById('fileInput').click();">Upload a File</button>
+                <input type="file" id="fileInput" name="file" style="display:none;" onchange="uploadFile()">
+            </form>
+        </div>
+
+        <!-- Uploaded files list -->
+        <div class="files-section">
+            {% if files %}
+                <h2>Uploaded Files</h2>
+                <table class="files-table">
+                    <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for file in files %}
+                        <tr>
+                            <td>{{ file.original_filename }}</td>
+                            <td><a href="{{ url_for('view_file', file_id=file.file_id) }}" class="download-link">Download</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="empty-vault">Your vault is empty.</p>
+            {% endif %}
+        </div>
+
+        <!-- Logout button -->
+        <footer class="vault-footer">
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </footer>
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div class="flash-messages">
+          {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+              {{ message }}
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <script>
+      // Function to handle file selection and trigger form submission
+      function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        const form = document.getElementById('uploadForm');
+
+        // If a file is selected
+        if (fileInput.files.length > 0) {
+          form.submit();  // Submit the form to upload the file
+        }
+      }
+
+      // Fade out flash messages after 3 seconds
+      setTimeout(() => {
+        const flashMessages = document.querySelector('.flash-messages');
+        if (flashMessages) {
+          flashMessages.style.transition = "opacity 0.5s ease";
+          flashMessages.style.opacity = "0";
+          setTimeout(() => flashMessages.remove(), 500);
+        }
+      }, 3000);
+    </script>
+</body>
+</html>

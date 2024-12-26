@@ -1,0 +1,153 @@
+/* General body styling */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(to right, #395739, #2a3964);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the register form */
+.register-container {
+    background-color: rgba(23, 23, 23, 0.8);;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.register-container:hover {
+    transform: scale(1.05);
+}
+
+/* Header styling */
+h1 {
+    color: #ebecde;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Input and button styling */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 1em;
+    color: #f1eaea;
+    margin-bottom: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="confirm_password"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3B5227;
+}
+
+/* Link styling */
+.login-link {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 480px) {
+    .register-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    button {
+        font-size: 1em;
+    }
+}
+
+.flash-messages {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+    opacity: 1; /* Default visible state */
+}
+
+.flash-message {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease; /* Smooth fade-out */
+}
+
+/* Flash message styles for different categories */
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Fade-in effect */
+.flash-message {
+    opacity: 1; /* Start fully visible */
+}
+
+/* Optional: Custom pop-up effect */
+.flash-messages {
+    animation: fadeInPop 0.3s ease;
+}
+
+/* Keyframes for pop-up effect */
+@keyframes fadeInPop {
+    from {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}

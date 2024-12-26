@@ -1,0 +1,160 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Vault container */
+.vault-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Header styling */
+.vault-header h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Upload section */
+.upload-section {
+    margin-bottom: 20px;
+}
+
+.upload-btn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.upload-btn:hover {
+    background: #45a049;
+}
+
+/* Files section */
+.files-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: #f9f9f9;
+}
+
+.files-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-item {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.download-link {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.download-link:hover {
+    text-decoration: underline;
+}
+
+/* Empty vault message */
+.empty-vault {
+    font-style: italic;
+    color: #bbb;
+}
+
+/* Footer section */
+.vault-footer {
+    margin-top: 20px;
+}
+
+.logout-btn {
+    background: #e53935;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.logout-btn:hover {
+    background: #d32f2f;
+}
+
+.flash-messages {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    max-width: 90%;
+    text-align: center;
+    opacity: 1; /* Default visible state */
+}
+
+.flash-message {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease; /* Smooth fade-out */
+}
+
+/* Flash message styles for different categories */
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Fade-in effect */
+.flash-message {
+    opacity: 1; /* Start fully visible */
+}
+
+/* Optional: Custom pop-up effect */
+.flash-messages {
+    animation: fadeInPop 0.3s ease;
+}
+
+/* Keyframes for pop-up effect */
+@keyframes fadeInPop {
+    from {
+        transform: translateX(-50%) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+}
