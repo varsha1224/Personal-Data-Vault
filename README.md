@@ -26,19 +26,12 @@ Create and activate a virtual environment:
 python3 -m venv venv
 source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
 Install the required Python packages:
-
-bash
-Copy code
 pip install -r requirements.txt
-Set up the PostgreSQL database:
 
+Set up the PostgreSQL database:
 Ensure you have PostgreSQL installed and running.
 Create a new database (e.g., personalDataVault).
-bash
-Copy code
-psql -U postgres
-CREATE DATABASE personalDataVault;
-Update the DB_CONFIG in db.py with your PostgreSQL credentials.
+
 Initialize the database schema:
 
 You can manually create the tables in PostgreSQL or use an ORM tool to automatically generate them. The schema includes three main tables: users, files, and logs.
@@ -46,18 +39,7 @@ You can manually create the tables in PostgreSQL or use an ORM tool to automatic
 Set up Flask secret keys and encryption:
 
 Update private_key_path in the app.py file to point to the private key used for generating public keys during registration.
-Running the Application
-Start the Flask development server:
 
-bash
-Copy code
-flask run
-Open your browser and go to:
-
-arduino
-Copy code
-http://localhost:5000
-The application will prompt you to log in or register as a new user.
 
 Endpoints
 /login (GET, POST)
@@ -84,8 +66,7 @@ Response: Returns a JSON object with a path to the decrypted file.
 /logout (GET)
 Purpose: Logs out the current user and redirects to the login page.
 File Structure
-php
-Copy code
+
 personal-data-vault/
 │
 ├── app.py                # Flask app containing routes and main logic
@@ -118,6 +99,7 @@ Session Management: The application uses Flask’s session management for user a
 File Integrity: The use of AES-GCM ensures both confidentiality and integrity of the files.
 
 Troubleshooting
+
 Database Connection Issues: Make sure that PostgreSQL is running and the DB_CONFIG credentials are correct.
 File Upload Errors: Check that the file types are allowed (txt, pdf, png, jpg, jpeg, gif).
 Decryption Errors: Ensure the correct private key is being used for decryption.
