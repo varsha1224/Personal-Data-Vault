@@ -1,7 +1,7 @@
 # Personal-Data-Vault
 The Personal Data Vault is a Flask-based web application designed to securely store and manage encrypted files. Users can register, log in, upload files, and retrieve them after decryption. The application uses AES encryption for file content and RSA encryption to encrypt the AES keys. The app leverages PostgreSQL for persistent storage of users, files, and logs.
 
-Features
+**Features**
 
 User Registration and Authentication: Users can register and log in with secure passwords.
 File Upload and Encryption: Files uploaded by users are encrypted with AES before being stored.
@@ -9,9 +9,9 @@ RSA Encryption for AES Keys: AES keys used to encrypt the files are encrypted wi
 File Decryption: Authorized users can decrypt and download their files.
 Action Logging: All actions (e.g., file uploads) are logged for auditing purposes.
 
-Installation
+**Installation**
 
-Prerequisites
+**Prerequisites**
 Python 3.x
 PostgreSQL database
 pip for installing Python packages
@@ -38,7 +38,7 @@ Set up Flask secret keys and encryption:
 Update private_key_path in the app.py file to point to the private key used for generating public keys during registration.
 
 
-Endpoints
+**Endpoints**
 /login (GET, POST)
 Purpose: User login.
 Request Body:
@@ -88,7 +88,7 @@ personal-data-vault/
 
 └── downloads/            # Folder for decrypted files to be downloaded
 
-Cryptography Details
+**Cryptography Details**
 
 AES Encryption: Files are encrypted using AES in GCM mode (256-bit key).
 RSA Encryption: AES keys are encrypted using the user's RSA public key (OAEP padding with SHA-256).
@@ -100,13 +100,13 @@ RSA Encryption:
 The AES key is encrypted using the RSA public key of the user during file upload.
 The encrypted AES key is stored in the database along with the file metadata.
 
-Security Considerations
+**Security Considerations**
 
 Private Key Storage: Ensure that the private keys used for decryption are stored securely.
 Session Management: The application uses Flask’s session management for user authentication.
 File Integrity: The use of AES-GCM ensures both confidentiality and integrity of the files.
 
-Troubleshooting
+**Troubleshooting**
 
 Database Connection Issues: Make sure that PostgreSQL is running and the DB_CONFIG credentials are correct.
 File Upload Errors: Check that the file types are allowed (txt, pdf, png, jpg, jpeg, gif).
